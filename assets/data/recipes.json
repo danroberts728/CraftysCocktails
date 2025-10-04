@@ -1,0 +1,99 @@
+{
+  "Mint Julep": {
+    "ingredients": [
+      "2.5 oz bourbon (Buffalo Trace is excellent)",
+      "0.25 oz simple syrup",
+      "10-12 mint leaves"
+    ],
+    "instructions": [
+      "Place your mint into your right hand and give it a light slap.",
+      "Add mint and rest of ingredients to glass. Using a muddle lightly press down on the mint.",
+      "Add ice to Lewis bag and crush.",
+      "Add ice to glass about 3/4 full and stir with spoon",
+      "Top off glass with ice and garnish with handfull of mint sprigs."
+    ],
+    "photo": "./assets/img/recipes/mint-julep.png",
+    "notes": "I used the iconic Julep glass, but a rocks glass works too. Double the simple syprup if you like it sweeter.."
+  },
+  "Gold Rush": {
+    "ingredients": [
+      "2 oz bourbon (Buffalo Trace is excellent)",
+      "0.75 oz lemon juice",
+      "0.75 oz honey syrup",
+      "Garnish: Lemon wedge or twist"
+      
+    ],
+    "instructions": [
+      "Place all ingredients into a shaker.",
+      "Add ice to shaker and shake your drink for 12-15 seconds.",
+      "Add ice or large ice cube to rocks glass and strain cocktail into glass.",
+      "Garnish with a lemon widge or twist."
+    ],
+    "photo": "./assets/img/recipes/gold-rush.jpg"
+  },
+  "Manhattan": {
+    "ingredients": [
+        "2 oz Rye Whiskey",
+        "1 oz Sweet Vermouth",
+        "2 dashes Angostura Bitters",
+        "Garnish: Cherry or orange peel"
+    ],
+    "instructions": [
+        "Add ingredients to mixing glass.",
+        "Add ice and stire for 30 seconds.",
+        "Strain cocktail into coupe or Martini glass.",
+        "Garnish with cherry or orange peel."
+    ],
+    "photo": "./assets/img/recipes/manhattan.jpg",
+    "notes": "I'm pretty sure I made this into a pitcher by multiplying the ingredients by 10."
+  },
+  "Whiskey Sour": {
+    "ingredients": [
+        "2 oz Whiskey",
+        "0.75 oz lemon juice",
+        "0.75 oz simple syrup",
+        "1 egg white",
+        "Garnish: Angostora bitters"
+    ],
+    "instructions": [
+        "Place all ingredients into a shaker <strong>without ice</strong>.",
+        "Dry shake (no ice) for 30 seconds.",
+        "Add ice to shaker and shake your drink for 8-10 seconds.",
+        "Double strain into coupe or Martini glass.",
+        "Garnish with Angostura bitter drops on top."
+    ],
+    "photo": "./assets/img/recipes/whiskey-sour.jpg",
+    "notes": "If you can't stand the idea of egg white, most bartenders just leave it off. You can also Aquafaba."
+  },
+  "Ada Shelby": {
+    "ingredients": [
+        "2 oz Irish Whiskey",
+        "2 oz orange juice",
+        "0.5 oz Triple Sec",
+        "Strawberry syrup to taste"
+    ],
+    "instructions": [
+        "Place all ingredients except strawberry syrup into glass with ice.",
+        "Stir for 10 seconds.",
+        "Stir in strawberry syrup to preference. I usually like 1-2 oz."
+    ],
+    "photo": "./assets/img/recipes/ada-shelby.jpg",
+    "notes": "This is Lindsay's version, which is different than the Peaky Blinders cocktail book. The book also calls for Sexton, but I usually use Bushmills or Tullamore Dew."
+  },
+  "Green Irish Tea": {
+    "ingredients": [
+        "2 oz Irish Whiskey",
+        "2 oz Peach Schnapps",
+        "2 oz Sweet & Sour mix",
+        "Sprite or other lemon-lime soda"
+    ],
+    "instructions": [
+        "Put all ingredients, except Sprite, into cocktail shaker with ice.",
+        "Shake for 10-15 seconds.",
+        "Strain over ice into a tumbler or high ball glass.",
+        "Top off with Sprite"
+    ],
+    "photo": "./assets/img/recipes/green-irish-tea.jpg",
+    "notes": "You'll find most receipes online are for shots, but the key is the 1:1:1 ratio of ingredients and top with Sprite. To make homemade Sweet & Sour mix, do equal parts water, sugar, lemon juice and lime juice."
+  }
+}

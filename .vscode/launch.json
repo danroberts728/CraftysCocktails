@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch http-server project",
+            "url": "http://localhost:8080", // Match the port from http-server
+            "webRoot": "${workspaceFolder}",
+            "preLaunchTask": "start http-server" // Reference the task defined above
+        }
+    ]
+}

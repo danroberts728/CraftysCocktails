@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start http-server",
+            "type": "shell",
+            "command": "http-server", // Or the full path to http-server if not in PATH
+            "isBackground": true, // Run in the background
+            "problemMatcher": [], // Or a specific problem matcher if needed
+            "presentation": {
+                "reveal": "never", // Don't show the terminal automatically
+                "panel": "dedicated"
+            }
+        }
+    ]
+}

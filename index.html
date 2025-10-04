@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crafty’s Cocktails</title>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Crafty’s Cocktails</h1>
+    <p class="subtitle">Single-elimination · 32 cocktails</p>
+  </header>
+
+  <main id="app">
+    <div id="loading">Loading bracket…</div>
+
+    <div id="bracket-shell">
+      <!-- lines overlay -->
+      <svg id="links" aria-hidden="true"></svg>
+
+      <!-- 9 columns: 4 left + center + 4 right -->
+      <div id="bracket" class="grid">
+        <!-- LEFT ARM -->
+        <section class="side" id="left">
+          <div class="round" data-round="1"><div class="round-title">Round 1</div><div class="matches"></div></div>
+          <div class="round" data-round="2"><div class="round-title">Round 2</div><div class="matches"></div></div>
+          <div class="round" data-round="3"><div class="round-title">Round 3</div><div class="matches"></div></div>
+          <div class="round" data-round="4"><div class="round-title">Semifinal</div><div class="matches"></div></div>
+        </section>
+
+        <!-- CENTER -->
+        <section id="center">
+          <div class="round" data-round="5">
+            <div class="round-title">Championship</div>
+            <div class="matches"></div>
+          </div>
+        </section>
+
+        <!-- RIGHT ARM (mirrored) -->
+        <section class="side" id="right">
+          <div class="round" data-round="4"><div class="round-title">Semifinal</div><div class="matches"></div></div>
+          <div class="round" data-round="3"><div class="round-title">Round 3</div><div class="matches"></div></div>
+          <div class="round" data-round="2"><div class="round-title">Round 2</div><div class="matches"></div></div>
+          <div class="round" data-round="1"><div class="round-title">Round 1</div><div class="matches"></div></div>
+        </section>
+      </div>
+    </div>
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="recipe-title">
+        <button class="modal__close" type="button" title="Close" data-close>&times;</button>
+        <div class="modal__content">
+        <div class="modal__media">
+            <img id="recipe-photo" alt="" />
+        </div>
+        <div class="modal__text">
+            <h2 id="recipe-title"></h2>
+            <h3>Ingredients</h3>
+            <ul id="recipe-ingredients"></ul>
+            <h3>Instructions</h3>
+            <ol id="recipe-instructions"></ol>
+            <p id="recipe-notes" class="notes"></p>
+        </div>
+        </div>
+    </div>
+    </div>
+  </main>
+
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
