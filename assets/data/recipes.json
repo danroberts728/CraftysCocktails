@@ -1,99 +1,451 @@
 {
-  "Mint Julep": {
-    "ingredients": [
-      "2.5 oz bourbon (Buffalo Trace is excellent)",
-      "0.25 oz simple syrup",
-      "10-12 mint leaves"
-    ],
-    "instructions": [
-      "Place your mint into your right hand and give it a light slap.",
-      "Add mint and rest of ingredients to glass. Using a muddle lightly press down on the mint.",
-      "Add ice to Lewis bag and crush.",
-      "Add ice to glass about 3/4 full and stir with spoon",
-      "Top off glass with ice and garnish with handfull of mint sprigs."
-    ],
-    "photo": "./assets/img/recipes/mint-julep.png",
-    "notes": "I used the iconic Julep glass, but a rocks glass works too. Double the simple syprup if you like it sweeter.."
-  },
-  "Gold Rush": {
-    "ingredients": [
-      "2 oz bourbon (Buffalo Trace is excellent)",
-      "0.75 oz lemon juice",
-      "0.75 oz honey syrup",
-      "Garnish: Lemon wedge or twist"
-      
-    ],
-    "instructions": [
-      "Place all ingredients into a shaker.",
-      "Add ice to shaker and shake your drink for 12-15 seconds.",
-      "Add ice or large ice cube to rocks glass and strain cocktail into glass.",
-      "Garnish with a lemon widge or twist."
-    ],
-    "photo": "./assets/img/recipes/gold-rush.jpg"
-  },
-  "Manhattan": {
-    "ingredients": [
-        "2 oz Rye Whiskey",
-        "1 oz Sweet Vermouth",
-        "2 dashes Angostura Bitters",
-        "Garnish: Cherry or orange peel"
-    ],
-    "instructions": [
-        "Add ingredients to mixing glass.",
-        "Add ice and stire for 30 seconds.",
-        "Strain cocktail into coupe or Martini glass.",
-        "Garnish with cherry or orange peel."
-    ],
-    "photo": "./assets/img/recipes/manhattan.jpg",
-    "notes": "I'm pretty sure I made this into a pitcher by multiplying the ingredients by 10."
-  },
-  "Whiskey Sour": {
-    "ingredients": [
-        "2 oz Whiskey",
-        "0.75 oz lemon juice",
-        "0.75 oz simple syrup",
-        "1 egg white",
-        "Garnish: Angostora bitters"
-    ],
-    "instructions": [
-        "Place all ingredients into a shaker <strong>without ice</strong>.",
-        "Dry shake (no ice) for 30 seconds.",
-        "Add ice to shaker and shake your drink for 8-10 seconds.",
-        "Double strain into coupe or Martini glass.",
-        "Garnish with Angostura bitter drops on top."
-    ],
-    "photo": "./assets/img/recipes/whiskey-sour.jpg",
-    "notes": "If you can't stand the idea of egg white, most bartenders just leave it off. You can also Aquafaba."
-  },
-  "Ada Shelby": {
-    "ingredients": [
-        "2 oz Irish Whiskey",
-        "2 oz orange juice",
-        "0.5 oz Triple Sec",
-        "Strawberry syrup to taste"
-    ],
-    "instructions": [
-        "Place all ingredients except strawberry syrup into glass with ice.",
-        "Stir for 10 seconds.",
-        "Stir in strawberry syrup to preference. I usually like 1-2 oz."
-    ],
-    "photo": "./assets/img/recipes/ada-shelby.jpg",
-    "notes": "This is Lindsay's version, which is different than the Peaky Blinders cocktail book. The book also calls for Sexton, but I usually use Bushmills or Tullamore Dew."
-  },
-  "Green Irish Tea": {
-    "ingredients": [
-        "2 oz Irish Whiskey",
-        "2 oz Peach Schnapps",
-        "2 oz Sweet & Sour mix",
-        "Sprite or other lemon-lime soda"
-    ],
-    "instructions": [
-        "Put all ingredients, except Sprite, into cocktail shaker with ice.",
-        "Shake for 10-15 seconds.",
-        "Strain over ice into a tumbler or high ball glass.",
-        "Top off with Sprite"
-    ],
-    "photo": "./assets/img/recipes/green-irish-tea.jpg",
-    "notes": "You'll find most receipes online are for shots, but the key is the 1:1:1 ratio of ingredients and top with Sprite. To make homemade Sweet & Sour mix, do equal parts water, sugar, lemon juice and lime juice."
-  }
+    "Mint Julep": {
+        "ingredients": [
+            "2.5 oz bourbon (Buffalo Trace is excellent)",
+            "0.25 oz simple syrup",
+            "10-12 mint leaves"
+        ],
+        "instructions": [
+            "Place your mint into your right hand and give it a light slap.",
+            "Add mint and rest of ingredients to glass. Using a muddle lightly press down on the mint.",
+            "Add ice to Lewis bag and crush.",
+            "Add ice to glass about 3/4 full and stir with spoon",
+            "Top off glass with ice and garnish with handfull of mint sprigs."
+        ],
+        "photo": "./assets/img/recipes/mint-julep.png",
+        "notes": "I used the iconic Julep glass, but a rocks glass works too. Double the simple syprup if you like it sweeter. It's literally just bourbon cut with sugar and mint, and it's super easy to make."
+    },
+    "Gold Rush": {
+        "ingredients": [
+            "2 oz bourbon (Buffalo Trace is excellent)",
+            "0.75 oz lemon juice",
+            "0.75 oz honey syrup",
+            "Garnish: Lemon wedge or twist"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker.",
+            "Add ice to shaker and shake your drink for 12-15 seconds.",
+            "Add ice or large ice cube to rocks glass and strain cocktail into glass.",
+            "Garnish with a lemon widge or twist."
+        ],
+        "photo": "./assets/img/recipes/gold-rush.jpg",
+        "notes": "This was a surprise hit and knocked out my favorite - Mint Julep - in Round 1 (I also voted for this). Honey syrup can be 1-3 parts honey per 1 part water, depending on your preference. I tend to go 3:1 for more honey flavor."
+    },
+    "Manhattan": {
+        "ingredients": [
+            "2 oz Rye Whiskey",
+            "1 oz Sweet Vermouth",
+            "2 dashes Angostura Bitters",
+            "Garnish: Cherry or orange peel"
+        ],
+        "instructions": [
+            "Add ingredients to mixing glass.",
+            "Add ice and stire for 30 seconds.",
+            "Strain cocktail into coupe or Martini glass.",
+            "Garnish with cherry or orange peel."
+        ],
+        "photo": "./assets/img/recipes/manhattan.jpg",
+        "notes": "I'm pretty sure I made this into a pitcher by multiplying the ingredients by 10."
+    },
+    "Whiskey Sour": {
+        "ingredients": [
+            "2 oz Whiskey",
+            "0.75 oz lemon juice",
+            "0.75 oz simple syrup",
+            "1 egg white",
+            "Garnish: Angostora bitters"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker <strong>without ice</strong>.",
+            "Dry shake (no ice) for 30 seconds.",
+            "Add ice to shaker and shake your drink for 8-10 seconds.",
+            "Double strain into coupe or Martini glass.",
+            "Garnish with Angostura bitter drops on top."
+        ],
+        "photo": "./assets/img/recipes/whiskey-sour.jpg",
+        "notes": "If you can't stand the idea of egg white, most bartenders just leave it off. You can also Aquafaba. But I highly recommend giving it a try - it really cuts into the sourness. This works with any kind of whiskey. Rye makes it a little spicer."
+    },
+    "Ada Shelby": {
+        "ingredients": [
+            "2 oz Irish Whiskey",
+            "2 oz orange juice",
+            "0.5 oz Triple Sec",
+            "Strawberry syrup to taste"
+        ],
+        "instructions": [
+            "Place all ingredients except strawberry syrup into glass with ice.",
+            "Stir for 10 seconds.",
+            "Stir in strawberry syrup to preference. I usually like 1-2 oz."
+        ],
+        "photo": "./assets/img/recipes/ada-shelby.jpg",
+        "notes": "This is Lindsay's version, which is different than the Peaky Blinders cocktail book. The book also calls for Sexton, but I usually use Bushmills or Tullamore Dew."
+    },
+    "Green Irish Tea": {
+        "ingredients": [
+            "2 oz Irish Whiskey",
+            "2 oz Peach Schnapps",
+            "2 oz Sweet & Sour mix",
+            "Sprite or other lemon-lime soda"
+        ],
+        "instructions": [
+            "Put all ingredients, except Sprite, into cocktail shaker with ice.",
+            "Shake for 10-15 seconds.",
+            "Strain over ice into a tumbler or high ball glass.",
+            "Top off with Sprite"
+        ],
+        "photo": "./assets/img/recipes/green-irish-tea.jpg",
+        "notes": "You'll find most receipes online are for shots, but the key is the 1:1:1 ratio of ingredients and top with Sprite. To make homemade Sweet & Sour mix, do equal parts water, sugar, lemon juice and lime juice."
+    },
+    "Old Fashioned": {
+        "ingredients": [
+            "2 oz Whiskey",
+            "2 dashes Angostura Bitters",
+            "0.25 oz Maple Syrup",
+            "Garnish: Orange Peel or Cherry"
+        ],
+        "instructions": [
+            "Add ingredients to mixing glass.",
+            "Add ice and stir for 30 seconds.",
+            "Add large ice cube or ice to rocks glass.",
+            "Strain cocktail into glass.",
+            "Garnish with orange peel."
+        ],
+        "photo": "./assets/img/recipes/old-fashioned.jpg",
+        "notes": "Other syrups to try are simple syrup and Demerara Syrup. You can also experiment with different bitters. For garnish, I like to do a take an orange peel and do a U-loop around a cherry, secured with a toothpick."
+    },
+    "Improved Whiskey Cocktail": {
+        "ingredients": [
+            "2 oz Rye",
+            "0.25 oz Luxardo Maraschino Originale",
+            "0.25 oz Simple Syrup",
+            "2 dashes Angostura Bitters",
+            "1 dash Absinthe",
+            "Garnish: Lemon peel"
+        ],
+        "instructions": [
+            "Add ingredients to mixing glass.",
+            "Add ice and stir for 30 seconds.",
+            "Add large ice cube or ice to rocks glass.",
+            "Strain cocktail into coupe or Martini glass.",
+            "Garnish with lemon peel."
+        ],
+        "photo": "./assets/img/recipes/iwc.jpg",
+        "notes": "Don't skip out on the absinthe. It really makes the drink. You can try different styles of whiskey like bourbon, but Rye seemed to be the favorite."
+    },
+    "Appletini": {
+        "ingredients": [
+            "1.5 oz Vodka",
+            "0.75 oz Green Apple Schnapps",
+            "0.5 oz Lime Juice",
+            "0.25 oz Orange Liqueur",
+            "Garnish: Apple Slice or Cherry"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker.",
+            "Add ice and shake for 8–10 seconds.",
+            "Double strain into coupe or martini glass.",
+            "Garnish with apple slice or cherry."
+        ],
+        "photo": "./assets/img/recipes/appletini.jpg",
+        "notes": "Want a more red apple style cocktail? Try adding 0.75 oz of cranberry."
+    },
+    "Harvey Wallbanger": {
+        "ingredients": [
+            "2 oz Vodka",
+            "4 oz Orange Juice",
+            "0.5 oz Galliano (float on top)",
+            "Garnish: Orange Wedge, Cherry (optional)"
+        ],
+        "instructions": [
+            "Add ice to a Collins glass.",
+            "Add vodka and orange juice to glass.",
+            "Lightly stir with bar spoon for 20 seconds.",
+            "Float Galliano on top and garnish with orange wedge and optional cherry."
+        ],
+        "photo": "./assets/img/recipes/harvey-wallbanger.jpg",
+        "notes": "Galliano is hard to find"
+    },
+    "Cosmopolitan": {
+        "ingredients": [
+            "1.5 oz Vodka",
+            "0.75 oz Lime Juice",
+            "0.25 oz Simple Syrup",
+            "1 oz Triple Sec",
+            "1 oz Cranberry Juice",
+            "Garnish: Lime Wheel or Orange Peel"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker, then add ice.",
+            "Shake drink for 8–10 seconds.",
+            "Double strain into Martini glass.",
+            "Garnish with lime wheel or orange peel."
+        ],
+        "photo": "./assets/img/recipes/cosmopolitan.jpg",
+        "notes": ""
+    },
+    "Sex on the Beach": {
+        "ingredients": [
+            "1.5 oz Vodka",
+            "0.5 oz Peach Schnapps",
+            "1.5 oz Orange Juice",
+            "1.5 oz Cranberry Juice",
+            "Garnish: Orange Wheel and Cherry"
+        ],
+        "instructions": [
+            "Add vodka, peach schnapps, and orange juice to shaker.",
+            "Add ice and shake your drink for 8–10 seconds.",
+            "Add ice to glass, add in cranberry, and strain rest of cocktail into glass.",
+            "Garnish with orange wheel and cherry."
+        ],
+        "photo": "./assets/img/recipes/sex-on-the-beach.jpg",
+        "notes": "Adding cranberry first creates a fun layered look, but stir the cocktail before you drink it for the best flavor."
+    },
+    "Black Russian": {
+        "ingredients": [
+            "2 oz Vodka",
+            "1 oz Coffee Liqueur"
+        ],
+        "instructions": [
+            "Add ingredients to rocks glass.",
+            "Add ice to rocks glass.",
+            "Use bar spoon and lightly stir for 10 seconds."
+        ],
+        "photo": "./assets/img/recipes/black-russian.jpg",
+        "notes": "Kahlúa is the primary choice; use more or less depending on how sweet you'd like the cocktail."
+    },
+    "Moscow Mule": {
+        "ingredients": [
+            "2 oz Vodka",
+            "0.75 oz Lime Juice",
+            "0.25 oz Simple Syrup (optional)",
+            "Ginger Beer to Top",
+            "Garnish: Lime Wedge"
+        ],
+        "instructions": [
+            "Add vodka, lime juice, and simple syrup to shaker.",
+            "Add ice and shake your drink for 8–10 seconds.",
+            "Add ice to copper mug and strain drink into mug.",
+            "Top drink with ginger beer and garnish with a lime wedge."
+        ],
+        "photo": "./assets/img/recipes/moscow-mule.jpg",
+        "notes": "Some ginger beers are sweeter than others. Only add simple syrup if you have a spicier ginger beer."
+    },
+    "Mojito": {
+        "ingredients": [
+            "0.5 cup white sugar",
+            "36 leaves fresh mint, or to taste",
+            "3 medium limes, quartered",
+            "2 cups Rum",
+            "1 liter Club Soda"
+        ],
+        "instructions": [
+            "Muddle sugar and mint leaves together in pitcher until leaves are well broken down.",
+            "Add limes and muddle until limes are juiced.",
+            "Pour rum into sugar mixture; add club soda and stir until sugar is dissolved.",
+            "Serve and enjoy."
+        ],
+        "photo": "./assets/img/recipes/mojito.jpg",
+        "notes": "This obviously makes a pitcher, not just a drink. Don't over-muddle the mint or it looks kinda grimey."
+    },
+    "Tequila Sunrise": {
+        "ingredients": [
+            "2 oz Tequila",
+            "4 oz Orange Juice",
+            "0.25 oz Grenadine",
+            "Garnish: Orange Wedge"
+        ],
+        "instructions": [
+            "Add tequila and orange juice to shaker.",
+            "Add ice to shaker and shake your drink for 8–10 seconds.",
+            "Add grenadine to bottom of Collins glass.",
+            "Add ice to glass and strain cocktail.",
+            "Using a bar spoon, lightly stir.",
+            "Garnish with orange wedge."
+        ],
+        "photo": "./assets/img/recipes/tequila-sunrise.jpg",
+        "notes": "Elevate this cocktail with homemade grenadine. For homemade grenadine: combine 2 cups pomegranate juice, 2 cups sugar, ¼ cup pomegranate molasses, 1 tsp orange flower water, and 15 ml vodka. Stir in pot on low heat and bottle."
+    },
+    "Hurricane": {
+        "ingredients": [
+            "2 oz Light Rum",
+            "2 oz Dark Spiced Rum",
+            "2 oz Lemon Juice",
+            "2 oz Passionfruit Syrup",
+            "Garnish: Orange Slice and Cherry"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker.",
+            "(Optional) Place ice in Lewis bag and pound ice to crush.",
+            "Add ice to shaker and shake your drink for 8–10 seconds.",
+            "Pour all contents of shaker into glass and top with ice if needed.",
+            "Garnish with orange slice and cherry."
+        ],
+        "photo": "./assets/img/recipes/hurricane.jpg",
+        "notes": "Passionfruit syrup recipe: mix passion fruit purée and simple syrup in a 1:1 ratio. You can also find passion fruit syrups online."
+    },
+    "Daiquiri": {
+        "ingredients": [
+            "2 oz Rum",
+            "1 oz Simple Syrup",
+            "1 oz Lime Juice",
+            "Garnish: Lime Wheel"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker.",
+            "Add ice to shaker and shake your drink for 8–10 seconds.",
+            "Double strain into glass.",
+            "Garnish with lime wheel."
+        ],
+        "photo": "./assets/img/recipes/daiquiri.jpg",
+        "notes": ""
+    },
+    "Planter's Punch": {
+        "ingredients": [
+            "18 oz Dark Jamaican Rum",
+            "9 oz Fresh Lime Juice",
+            "6 oz Demerara Syrup",
+            "6 oz Pineapple Juice",
+            "3 oz Grenadine",
+            "12 dashes Angostura Bitters",
+            "18 oz Cold Water or Ice (for dilution)",
+            "Garnish: Mint Sprigs, Orange Slices, Pineapple Wedges"
+        ],
+        "instructions": [
+            "Combine all ingredients except garnish in a large punch bowl or pitcher.",
+            "Stir well and chill at least 1 hour before serving.",
+            "Add a large block of ice or several big cubes to keep cool without quick dilution.",
+            "Garnish the bowl with mint sprigs, orange slices, and pineapple wedges.",
+            "Ladle into individual glasses over ice."
+        ],
+        "photo": "./assets/img/recipes/planters-punch.jpg",
+        "notes": "Obviously this is a punch. I honestly can't remember if I used this exact recipe or tweaked it a bit. I should have saved it"
+    },
+    "Blood & Sand": {
+        "ingredients": [
+            "0.75 oz Blended Scotch",
+            "0.75 oz Sweet Vermouth",
+            "0.75 oz Cherry Heering",
+            "0.75 oz Orange Juice",
+            "Garnish: Orange Peel or Cherry"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker.",
+            "Add ice and shake for 8–10 seconds.",
+            "Double strain into a coupe or martini glass.",
+            "Garnish with an orange peel or cherry."
+        ],
+        "photo": "./assets/img/recipes/blood-and-sand.jpg",
+        "notes": "My favorite Blended Scotch for this is Johnny Walker Black. Try substituting pineapple juice for orange juice for a brighter tropical twist."
+    },
+    "Rob Roy": {
+        "ingredients": [
+            "2 oz Scotch (blended)",
+            "1 oz Sweet Vermouth",
+            "2 dashes Angostura Bitters",
+            "Garnish: Cherry"
+        ],
+        "instructions": [
+            "Place all ingredients into a mixing glass.",
+            "Add ice and stir for 30 seconds.",
+            "Strain into a coupe or martini glass.",
+            "Garnish with a cherry or orange peel."
+        ],
+        "photo": "./assets/img/recipes/rob-roy.jpg",
+        "notes": ""
+    },
+    "Sidecar": {
+        "ingredients": [
+            "2 oz Brandy (traditionally Cognac)",
+            "0.75 oz Orange Liqueur",
+            "0.5 oz Lemon Juice",
+            "Garnish: Sugar Rim and Lemon Peel"
+        ],
+        "instructions": [
+            "Add sugar rim to coupe or martini glass.",
+            "Place all ingredients into a shaker.",
+            "Add ice and shake for 8–10 seconds.",
+            "Double strain into prepared glass.",
+            "Garnish with lemon peel."
+        ],
+        "photo": "./assets/img/recipes/sidecar.jpg",
+        "notes": "I've tried this with VSOP brandy and Cognac, and it makes a very different drink."
+    },
+    "Vieux Carre": {
+        "ingredients": [
+            "1 oz Cognac (Remy Martin 1738) ",
+            "1 oz Rye Whiskey (Rittenhouse)",
+            "1 oz Sweet Vermouth",
+            "1 bar spoon Bénédictine",
+            "2 dashes Angostura Bitters",
+            "2 dashes Peychaud’s Bitters",
+            "Garnish: Cherry"
+        ],
+        "instructions": [
+            "Place all ingredients into a mixing glass.",
+            "Add ice and stir for 30 seconds.",
+            "Strain into a rocks glass over ice or a large cube.",
+            "Garnish with a cherry and include a spoonful of cherry juice."
+        ],
+        "photo": "./assets/img/recipes/vieux-carre.jpg",
+        "notes": "Judd introduced the cherry-juice trick, and it really makes the drink by sweetening it up just a bit"
+    },
+    "French 75": {
+        "ingredients": [
+            "1 oz Gin",
+            "0.5 oz Lemon Juice",
+            "0.5 oz Simple Syrup",
+            "Sparkling wine to top",
+            "Garnish: Lemon Twist"
+        ],
+        "instructions": [
+            "Add gin, lemon juice, and simple syrup to shaker.",
+            "Add ice and shake for 8–10 seconds.",
+            "Strain into champagne flute.",
+            "Add Sparkling wine to fill glass.",
+            "Garnish with lemon twist."
+        ],
+        "photo": "./assets/img/recipes/french-75.jpg",
+        "notes": "Korbel makes 12 oz bottles of sparking wine so you don't have to open a big 750mL bottle."
+    },
+    "Negroni": {
+        "ingredients": [
+            "1.5 cups Gin (Tanqueray)",
+            "1.5 cups Sweet Vermouth",
+            "1 cup Campari",
+            "0.5 cup orange juice",
+            "0.5 cup cold water",
+            "8 dashes orange bitters",
+            "Garnish: Orange wheels"
+        ],
+        "instructions": [
+            "Mix everything into a large pitcher or punch bowl.",
+            "Chill in fridge for at least 2 hours (or overnight)",
+            "Pour from puch bowl into a rocks glass with ice (maybe big ice cube)",
+            "Optionally garnish the cup with orange peel."
+        ],
+        "photo": "./assets/img/recipes/negroni.jpg",
+        "notes": "This is obviously a punchified version that I made. Traditionally, the gin/vermouth/Campari is 1:1:1, but it was coming out too bitter. I also added the orange juice and bitters to capture the slight flavor you normally get from the garnish. Also the cold water you get from the dilution."
+    },
+    "Cantarito": {
+        "ingredients": [
+            "1 bottle (750mL) blanco tequila",
+            "1.5 cups fresh lime juice (about 10-12 limes)",
+            "1.5 cups fresh orange juice (about 6 oranges)",
+            "1.5 cups gresh grapefruit juice (about 3-4 grapefruits)",
+            "0.75 cup agave syrup or simple syrup",
+            "0.5 tsp fine sea salt",
+            "3 cups chilled club soda or grapefruit soda (Squirt or Jarritos)",
+            "Garnish: Grapefruit slices, lime wheels, orange wheels."
+        ],
+        "instructions": [
+            "Combine everything except the soda in large pitcher or punch bowl.",
+            "Stir very well to dissolve the agave and salt",
+            "Chill in the fridge for at least 2 hours",
+            "Just before serving, add ice and gently top with the soda to keep it fizzy",
+            "Garnish generously with citrus slices",
+            "Rim glassware with Tajin slat"
+        ],
+        "photo": "./assets/img/recipes/cantarito.jpg",
+        "notes": "This is obviously a punchified version that I made. This is traditionally served in clay cups, but I just served in a rocks glass."
+    }
 }
