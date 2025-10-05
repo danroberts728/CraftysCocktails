@@ -36,6 +36,11 @@ function withinIdx(matchNum, arr) {
 }
 
 /* ================= Recipe store + modal ================= */
+function lockBodyScroll(lock) {
+  document.documentElement.style.overflow = lock ? 'hidden' : '';
+  document.body.style.overflow = lock ? 'hidden' : '';
+}
+
 const Recipes = {
     map: new Map(),
     async load(url = RECIPES_URL) {
@@ -70,6 +75,7 @@ function setupModal() {
 
             modal.classList.remove("is-open");
             modal.setAttribute("aria-hidden", "true");
+            lockBodyScroll(false);
         }
     });
 
@@ -114,6 +120,8 @@ function openRecipeModal(drinkName) {
         const steps = Array.isArray(r.instructions) ? r.instructions : (r.instructions ? String(r.instructions).split(/\n+/) : []);
         ul.innerHTML = ings.map(i => `<li>${i}</li>`).join("");
         ol.innerHTML = steps.map(s => `<li>${s}</li>`).join("");
+        ingredients_title.style.display = "";
+        instructions_title.style.display = "";
         notes.textContent = r.notes || "";
         notes.style.display = r.notes ? "" : "none";
     } else {
@@ -130,6 +138,7 @@ function openRecipeModal(drinkName) {
 
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
+    lockBodyScroll(true);
 }
 
 /* ================= Bracket layout ================= */

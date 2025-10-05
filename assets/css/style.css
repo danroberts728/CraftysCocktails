@@ -175,3 +175,43 @@ body{
   .modal__panel { margin: 4vh 10px; }
   .modal__content { grid-template-columns: 1fr; }
 }
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 50;
+  /* NEW */
+  align-items: center;
+  justify-content: center;
+  overflow: auto;            /* let the overall layer scroll if panel still taller */
+}
+
+.modal.is-open {
+  display: flex;             /* NEW: center the panel with flexbox */
+}
+
+/* Keep current look but cap height and let content scroll */
+.modal__panel {
+  position: relative;
+  margin: 4vh 10px;          /* tighter margins so we get more usable height */
+  max-width: 960px;
+  /* NEW */
+  max-height: 90dvh;         /* respects mobile browser UI; use dvh not vh */
+  overflow: auto;            /* scroll INSIDE the panel when content is long */
+}
+
+/* Optional: if the two-column grid itself should scroll (instead of the whole panel) */
+.modal__content {
+  display: grid;
+  grid-template-columns: 1.1fr 1.6fr;
+  gap: 16px;
+  /* NEW (optional): uncomment if you prefer the inner area to scroll instead */
+  /* max-height: calc(90dvh - 100px); 
+     overflow: auto; */
+}
+
+/* Mobile still stacks nicely */
+@media (max-width: 820px){
+  .modal__panel { margin: 4vh 10px; max-height: 90dvh; }
+  .modal__content { grid-template-columns: 1fr; }
+}
