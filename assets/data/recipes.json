@@ -447,5 +447,38 @@
         ],
         "photo": "./assets/img/recipes/cantarito.jpg",
         "notes": "This is obviously a punchified version that I made. This is traditionally served in clay cups, but I just served in a rocks glass."
+    },
+    "Martini": {
+        "ingredients": [
+            "2.25 oz Gin",
+            "0.75 oz Dry Vermouth",
+            "Garnish: 1 or 2 Castelvetrano olives"
+        ],
+        "instructions": [
+            "Place gin and vermouth into mixing glass",
+            "Add ice and stir for 30 seconds",
+            "Strain into a coupe or martini glass",
+            "Garnish with a speared olive or two"
+        ],
+        "photo": "./assets/img/recipes/martini.jpg",
+        "notes": "Sure, you can garnish with a lemon twist or pickled onion, but go classic with olives."
+    },
+    "Tom Collins": {
+        "ingredients": [
+            "2 oz Dry Gin",
+            "0.75 oz Lemon juice",
+            "0.75 oz Simple Syrup",
+            "Soda Water to Top",
+            "Garnish: Lemon Peel and Cherry"
+        ],
+        "instructions": [
+            "Place all ingredients except soda water into a shaker",
+            "Add ice and shake for 8–10 seconds",
+            "Add ice to your Collins glass and strain cocktail into glass",
+            "Top off with soda water",
+            "Garnish with a lemon peel and cherry speared with a toothpick"
+        ],
+        "photo": "./assets/img/recipes/tom-collins.jpg",
+        "notes": "Keith's favorite!"
     }
 }
