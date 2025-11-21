@@ -92,6 +92,63 @@ body{
   box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
 
+/* Wrapper around each match + icon */
+.match-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+/* Base icon button styling; specific placement via icon-* modifiers */
+.match-invite-btn {
+  border: 0;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  color: var(--muted);
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+.match-wrapper.icon-left .match-invite-btn {
+  position: absolute;
+  left: -32px;
+  top: calc(50% - var(--card-h) / 2 + var(--card-h) / 2);
+  transform: translateY(-50%);
+}
+
+.match-wrapper.icon-right .match-invite-btn {
+  position: absolute;
+  right: -32px;
+  top: calc(50% - var(--card-h) / 2 + var(--card-h) / 2);
+  transform: translateY(-50%);
+}
+
+.match-wrapper.icon-left,
+.match-wrapper.icon-right {
+  display: flex;
+  align-items: center; /* Vertical alignment baseline */
+}
+
+/* All other rounds: icon above, centered */
+.match-wrapper.icon-top .match-invite-btn {
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  transform: translate(-50%, 0);
+}
+
+.match-invite-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--accent);
+}
+
 /* Two stacked team “slots” */
 .slot{
   height: var(--slot-h);
@@ -210,8 +267,40 @@ body{
      overflow: auto; */
 }
 
+/* Force invite modal into a single centered vertical layout */
+.modal__content--invite {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100%;
+}
+
+.modal__content--invite img {
+  max-width: 100%;
+  max-height: 70vh;     /* ⬅️ keeps tall invites contained */
+  object-fit: contain;  /* ⬅️ preserves aspect ratio */
+  display: block;
+  margin: 0 auto 12px;
+  border-radius: 10px;
+  background: #121a2a;
+}
+
 /* Mobile still stacks nicely */
 @media (max-width: 820px){
   .modal__panel { margin: 4vh 10px; max-height: 90dvh; }
   .modal__content { grid-template-columns: 1fr; }
+}
+
+.round-title {
+  position: relative;
+  z-index: 10;
+  background: var(--bg); /* Prevent transparency showing cards beneath */
+}
+.match-wrapper,
+.match {
+  z-index: 1;
+}
+.round-title {
+  margin-bottom: 48px;
 }

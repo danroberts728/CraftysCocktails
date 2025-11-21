@@ -24,10 +24,22 @@
       <div id="bracket" class="grid">
         <!-- LEFT ARM -->
         <section class="side" id="left">
-          <div class="round" data-round="1"><div class="round-title">Round 1</div><div class="matches"></div></div>
-          <div class="round" data-round="2"><div class="round-title">Round 2</div><div class="matches"></div></div>
-          <div class="round" data-round="3"><div class="round-title">Round 3</div><div class="matches"></div></div>
-          <div class="round" data-round="4"><div class="round-title">Semifinal</div><div class="matches"></div></div>
+          <div class="round" data-round="1">
+            <div class="round-title">Round 1</div>
+            <div class="matches"></div>
+          </div>
+          <div class="round" data-round="2">
+            <div class="round-title">Round 2</div>
+            <div class="matches"></div>
+          </div>
+          <div class="round" data-round="3">
+            <div class="round-title">Round 3</div>
+            <div class="matches"></div>
+          </div>
+          <div class="round" data-round="4">
+            <div class="round-title">Semifinal</div>
+            <div class="matches"></div>
+          </div>
         </section>
 
         <!-- CENTER -->
@@ -40,32 +52,58 @@
 
         <!-- RIGHT ARM (mirrored) -->
         <section class="side" id="right">
-          <div class="round" data-round="4"><div class="round-title">Semifinal</div><div class="matches"></div></div>
-          <div class="round" data-round="3"><div class="round-title">Round 3</div><div class="matches"></div></div>
-          <div class="round" data-round="2"><div class="round-title">Round 2</div><div class="matches"></div></div>
-          <div class="round" data-round="1"><div class="round-title">Round 1</div><div class="matches"></div></div>
+          <div class="round" data-round="4">
+            <div class="round-title">Semifinal</div>
+            <div class="matches"></div>
+          </div>
+          <div class="round" data-round="3">
+            <div class="round-title">Round 3</div>
+            <div class="matches"></div>
+          </div>
+          <div class="round" data-round="2">
+            <div class="round-title">Round 2</div>
+            <div class="matches"></div>
+          </div>
+          <div class="round" data-round="1">
+            <div class="round-title">Round 1</div>
+            <div class="matches"></div>
+          </div>
         </section>
       </div>
     </div>
+
     <!-- Recipe Modal -->
     <div id="recipe-modal" class="modal" aria-hidden="true">
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="recipe-title">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="recipe-title">
         <button class="modal__close" type="button" title="Close" data-close>&times;</button>
         <div class="modal__content">
-        <div class="modal__media">
+          <div class="modal__media">
             <img id="recipe-photo" alt="" />
-        </div>
-        <div class="modal__text">
+          </div>
+          <div class="modal__text">
             <h2 id="recipe-title"></h2>
             <h3 id="ingredients-title">Ingredients</h3>
             <ul id="recipe-ingredients"></ul>
             <h3 id="instructions-title">Instructions</h3>
             <ol id="recipe-instructions"></ol>
             <p id="recipe-notes" class="notes"></p>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
+
+    <!-- Invite Modal -->
+    <div id="invite-modal" class="modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="invite-title">
+        <button class="modal__close" type="button" title="Close" data-close>&times;</button>
+        <div class="modal__content modal__content--invite">
+          <h2 id="invite-title">Match Invite</h2>
+          <img id="invite-image" alt="Invite for this matchup" />
+          <p id="invite-fallback" class="notes">Invite coming soon.</p>
+        </div>
+      </div>
     </div>
   </main>
 

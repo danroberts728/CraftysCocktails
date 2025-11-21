@@ -3,6 +3,7 @@ import * as CFG from "./config.js";
 // --- Config (fallbacks ok for GH Pages)
 const SHEET_URL = CFG.SHEET_URL;
 const RECIPES_URL = CFG.RECIPES_URL ?? "./assets/data/recipes.json";
+const INVITES_URL = CFG.INVITES_URL ?? "./assets/data/invites.json";
 
 /* ================= Utilities ================= */
 // If the sheet is blank, make it TBD for the card
@@ -27,18 +28,19 @@ async function parseCsv(url) {
 }
 
 // Keep these in sync with CSS vars
-const CARD_H = 84;   // --card-h
-const V_GAP = 16;   // --v-gap
+const CARD_H = 84;
+const V_GAP = 16;
 
 function withinIdx(matchNum, arr) {
     const min = Math.min(...arr.map(d => d.Match));
-    return matchNum - min + 1; // 1-based
+    return matchNum - min + 1;
 }
 
 /* ================= Recipe store + modal ================= */
+
 function lockBodyScroll(lock) {
-  document.documentElement.style.overflow = lock ? 'hidden' : '';
-  document.body.style.overflow = lock ? 'hidden' : '';
+    document.documentElement.style.overflow = lock ? "hidden" : "";
+    document.body.style.overflow = lock ? "hidden" : "";
 }
 
 const Recipes = {
@@ -48,7 +50,9 @@ const Recipes = {
         try {
             const res = await fetch(url, { cache: "no-store" });
             const json = await res.json();
-            Object.keys(json).forEach(name => this.map.set(name.toLowerCase(), json[name]));
+            Object.keys(json).forEach(name =>
+                this.map.set(name.toLowerCase(), json[name])
+            );
         } catch (e) {
             console.warn(CFG.ERRORSTR_RECIPE_FETCH, e);
         }
@@ -60,19 +64,44 @@ const Recipes = {
     }
 };
 
-// Create a simple modal if one wasn't added in HTML
-function setupModal() {
-    let modal = document.getElementById(CFG.ELEMENTID_RECIPE_MODAL);
+/* ================= Invites store ================= */
 
-    // Always (re)attach close handlers, even if modal came from HTML
+const Invites = {
+    list: [],
+    async load(url = INVITES_URL) {
+        if (this.list.length) return this.list;
+        try {
+            const res = await fetch(url, { cache: "no-store" });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            // ensure it's an array
+            this.list = Array.isArray(json) ? json : [];
+        } catch (e) {
+            console.warn("No invites loaded:", e);
+            this.list = [];
+        }
+        return this.list;
+    },
+    findByRoundMatch(round, match) {
+        round = Number(round);
+        match = Number(match);
+        return this.list.find(
+            i => Number(i.round) === round && Number(i.match) === match
+        ) || null;
+    }
+};
+
+/* ====== RECIPE MODAL ====== */
+function setupRecipeModal() {
+    const modal = document.getElementById(CFG.ELEMENTID_RECIPE_MODAL);
+    if (!modal || modal.__wired) return;
+    modal.__wired = true;
+
     modal.addEventListener("click", (e) => {
-        // close if clicking backdrop, the × button, or outside the panel
         if (e.target.hasAttribute("data-close") || e.target === modal) {
-            // remove focus before hiding modal
             if (document.activeElement && modal.contains(document.activeElement)) {
                 document.activeElement.blur();
             }
-
             modal.classList.remove("is-open");
             modal.setAttribute("aria-hidden", "true");
             lockBodyScroll(false);
@@ -80,28 +109,28 @@ function setupModal() {
     });
 
     window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-            // remove focus before hiding modal
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
             if (document.activeElement && modal.contains(document.activeElement)) {
                 document.activeElement.blur();
             }
             modal.classList.remove("is-open");
             modal.setAttribute("aria-hidden", "true");
+            lockBodyScroll(false);
         }
     });
 }
 
-
 function openRecipeModal(drinkName) {
-    setupModal();
+    setupRecipeModal();
+
     const modal = document.getElementById(CFG.ELEMENTID_RECIPE_MODAL);
     const title = document.getElementById(CFG.ELEMENTID_RECIPE_TITLE);
     const img = document.getElementById(CFG.ELEMENTID_RECIPE_PHOOTO);
     const ul = document.getElementById(CFG.ELEMENTID_RECIPE_INGREDIENTS);
     const ol = document.getElementById(CFG.ELEMENTID_RECIPE_INSTRUCTIONS);
+    const notes = document.getElementById(CFG.ELEMENTID_RECIPE_NOTES);
     const ingredients_title = document.getElementById(CFG.ELEMENTID_INGREDIENTS_TITLE);
     const instructions_title = document.getElementById(CFG.ELEMENTID_INSTRUCTIONS_TITLE);
-    const notes = document.getElementById(CFG.ELEMENTID_RECIPE_NOTES);
 
     title.textContent = drinkName;
     const r = Recipes.get(drinkName);
@@ -116,17 +145,25 @@ function openRecipeModal(drinkName) {
             img.alt = "";
             img.style.display = "none";
         }
-        const ings = Array.isArray(r.ingredients) ? r.ingredients : (r.ingredients ? String(r.ingredients).split(/\n+/) : []);
-        const steps = Array.isArray(r.instructions) ? r.instructions : (r.instructions ? String(r.instructions).split(/\n+/) : []);
+
+        const ings = Array.isArray(r.ingredients)
+            ? r.ingredients
+            : (r.ingredients ? String(r.ingredients).split(/\n+/) : []);
+
+        const steps = Array.isArray(r.instructions)
+            ? r.instructions
+            : (r.instructions ? String(r.instructions).split(/\n+/) : []);
+
         ul.innerHTML = ings.map(i => `<li>${i}</li>`).join("");
         ol.innerHTML = steps.map(s => `<li>${s}</li>`).join("");
+
         ingredients_title.style.display = "";
         instructions_title.style.display = "";
+
         notes.textContent = r.notes || "";
         notes.style.display = r.notes ? "" : "none";
+
     } else {
-        img.removeAttribute("src");
-        img.alt = "";
         img.style.display = "none";
         ul.innerHTML = "";
         ol.innerHTML = "";
@@ -141,10 +178,86 @@ function openRecipeModal(drinkName) {
     lockBodyScroll(true);
 }
 
+/* ====== INVITE MODAL ====== */
+
+function setupInviteModal() {
+    const modal = document.getElementById(CFG.ELEMENTID_INVITE_MODAL);
+    if (!modal || modal.__wired) return;
+    modal.__wired = true;
+
+    modal.addEventListener("click", (e) => {
+        if (e.target.hasAttribute("data-close") || e.target === modal) {
+            if (document.activeElement && modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+            }
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            lockBodyScroll(false);
+        }
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+            if (document.activeElement && modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+            }
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            lockBodyScroll(false);
+        }
+    });
+}
+
+async function openInviteModal(roundNumber, matchNumber) {
+    setupInviteModal();
+
+    const modal    = document.getElementById(CFG.ELEMENTID_INVITE_MODAL);
+    const titleEl  = document.getElementById(CFG.ELEMENTID_INVITE_TITLE);
+    const imgEl    = document.getElementById(CFG.ELEMENTID_INVITE_IMAGE);
+    const fallback = document.getElementById(CFG.ELEMENTID_INVITE_FALLBACK);
+
+    if (!modal || !imgEl) return;
+
+    // Make sure invites are loaded (no-op if already done)
+    await Invites.load();
+
+    const invite = Invites.findByRoundMatch(roundNumber, matchNumber);
+
+    // Title
+    if (titleEl) {
+        if (invite && invite.title) {
+            titleEl.textContent = invite.title;
+        } else {
+            titleEl.textContent = ``;
+        }
+    }
+
+    // If we don't have an invite or image, just show fallback text
+    if (!invite || !invite.image) {
+        imgEl.style.display = "none";
+        if (fallback) fallback.style.display = "";
+    } else {
+        const src = invite.image;
+
+        imgEl.onload = () => {
+            imgEl.style.display = "";
+            if (fallback) fallback.style.display = "none";
+        };
+        imgEl.onerror = () => {
+            imgEl.style.display = "none";
+            if (fallback) fallback.style.display = "";
+        };
+
+        imgEl.src = src;
+    }
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    lockBodyScroll(true);
+}
+
 /* ================= Bracket layout ================= */
 
-// We store the actual card elements for geometry lookups
-// Key: `${round}|${match}`  →  HTMLElement
 window.__cards = new Map();
 
 function placeRound(side, roundNumber, roundData, parentRoundData) {
@@ -155,13 +268,16 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
                 ? `#right .round[data-round="${roundNumber}"] .matches`
                 : `#center .round[data-round="${roundNumber}"] .matches`
     );
+
     column.innerHTML = "";
     if (!roundData?.length) return;
 
     roundData.sort((a, b) => a.Match - b.Match);
 
     const parentSorted = (parentRoundData || []).slice().sort((a, b) => a.Match - b.Match);
-    const parentMin = parentSorted.length ? Math.min(...parentSorted.map(p => p.Match)) : null;
+    const parentMin = parentSorted.length
+        ? Math.min(...parentSorted.map(p => p.Match))
+        : null;
 
     const colTop = () => column.getBoundingClientRect().top;
     let maxBottom = 0;
@@ -189,9 +305,26 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
             }
         }
 
+        /* WRAPPER */
+        const wrapper = document.createElement("div");
+        wrapper.className = "match-wrapper";
+        wrapper.style.position = "absolute";
+        wrapper.style.left = "0";
+        wrapper.style.right = "0";
+        wrapper.style.top = `${y}px`;
+
+        // Apply icon placement=
+        if (roundNumber === 1 && side === "left") {
+            wrapper.classList.add("icon-left");
+        } else if (roundNumber === 1 && side === "right") {
+            wrapper.classList.add("icon-right");
+        } else {
+            wrapper.classList.add("icon-top");
+        }
+
+        /* CARD */
         const card = document.createElement("div");
         card.className = "match";
-        card.style.top = `${y}px`;
 
         const slot1 = document.createElement("div");
         slot1.className = "slot";
@@ -201,13 +334,11 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
         slot2.className = "slot";
         slot2.innerHTML = `<span>${d.Drink2}</span>`;
 
-        // highlight real winner only (never TBD)
         if (d.Winner !== "TBD") {
             if (d.Winner === d.Drink1) slot1.classList.add("winner");
             if (d.Winner === d.Drink2) slot2.classList.add("winner");
         }
 
-        // Make slots clickable for recipes (ignore TBD)
         if (d.Drink1 && d.Drink1 !== "TBD") {
             slot1.style.cursor = "pointer";
             slot1.title = "View recipe";
@@ -219,10 +350,31 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
             slot2.addEventListener("click", () => openRecipeModal(d.Drink2));
         }
 
-        card.append(slot1, slot2);
-        column.appendChild(card);
+        /* INVITE ICON — only show if invite exists */
+        let inviteBtn = null;
+        const inviteData = Invites.findByRoundMatch(roundNumber, d.Match);
 
-        // store
+        if (inviteData) {
+            inviteBtn = document.createElement("button");
+            inviteBtn.type = "button";
+            inviteBtn.className = "match-invite-btn";
+            inviteBtn.title = "View Invitation";
+            inviteBtn.innerHTML = "🎫";
+
+            inviteBtn.addEventListener("click", (evt) => {
+                evt.stopPropagation();
+                openInviteModal(roundNumber, d.Match);
+            });
+
+            wrapper.append(inviteBtn);
+        }
+
+        /* BUILD DOM */
+        card.append(slot1, slot2);
+        wrapper.append(card);
+
+        column.appendChild(wrapper);
+
         window.__cards.set(`${roundNumber}|${d.Match}`, card);
 
         const bottom = y + CARD_H;
@@ -232,7 +384,7 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
     column.style.minHeight = `${maxBottom + 20}px`;
 }
 
-/* ================= Links (curves) ================= */
+/* ================= Links ================= */
 function drawLinks(byRound) {
     const svg = document.getElementById("links");
     const shell = document.getElementById("bracket-shell");
@@ -254,7 +406,6 @@ function drawLinks(byRound) {
         const ra = a.getBoundingClientRect();
         const rb = b.getBoundingClientRect();
 
-        // draw from leftmost to rightmost (works on both arms)
         const leftEl = ra.left <= rb.left ? a : b;
         const rightEl = ra.left <= rb.left ? b : a;
 
@@ -267,7 +418,7 @@ function drawLinks(byRound) {
         const y2 = rr.top + rr.height / 2 - svgRect.top;
 
         const dx = Math.abs(x2 - x1);
-        const c = dx * 0.45; // curve strength
+        const c = dx * 0.45;
 
         const d = `M ${x1},${y1} C ${x1 + c},${y1} ${x2 - c},${y2} ${x2},${y2}`;
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -278,7 +429,6 @@ function drawLinks(byRound) {
         svg.appendChild(path);
     }
 
-    // R1→R2, R2→R3, R3→R4, R4→R5
     for (let r = 2; r <= 5; r++) {
         const prev = (byRound.get(r - 1) || []).slice().sort((a, b) => a.Match - b.Match);
         const cur = (byRound.get(r) || []).slice().sort((a, b) => a.Match - b.Match);
@@ -298,19 +448,21 @@ function drawLinks(byRound) {
 /* ================= Main ================= */
 (async function init() {
     try {
-        setupModal();
+        setupRecipeModal();
+        setupInviteModal();
         document.getElementById("loading").style.display = "block";
 
-        await Recipes.load();           // preload recipe map (safe if file missing)
+        await Recipes.load();
+        await Invites.load();
 
         const rows = await parseCsv(SHEET_URL);
         const data = rows.map(d => ({
-            Round: +d.Round || 0,
-            Match: +d.Match || 0,
-            Drink1: defaultTbd(d.Drink1),
-            Drink2: defaultTbd(d.Drink2),
-            Winner: defaultTbd(d.Winner),
-        }));
+        Round: +d.Round || 0,
+        Match: +d.Match || 0,
+        Drink1: defaultTbd(d.Drink1),
+        Drink2: defaultTbd(d.Drink2),
+        Winner: defaultTbd(d.Winner),
+        }))
 
         const byRound = new Map();
         data.forEach(d => {
@@ -318,13 +470,11 @@ function drawLinks(byRound) {
             byRound.get(d.Round).push(d);
         });
 
-        // Split R1 into arms
         const r1 = (byRound.get(1) || []).slice().sort((a, b) => a.Match - b.Match);
         const mid = Math.ceil(r1.length / 2);
         const r1Left = r1.slice(0, mid);
         const r1Right = r1.slice(mid);
 
-        // Reset geometry registry
         window.__cards = new Map();
 
         // LEFT
@@ -345,22 +495,24 @@ function drawLinks(byRound) {
             placeRound("right", r, cur.slice(half), prev.slice(Math.ceil(prev.length / 2)));
         }
 
-        // CENTER (Championship)
+        // CENTER
         placeRound("center", 5, (byRound.get(5) || []), (byRound.get(4) || []));
 
-        // Draw links after layout settles
         const redraw = () => {
             drawLinks(byRound);
             document.getElementById("loading").style.display = "none";
         };
-        requestAnimationFrame(() => requestAnimationFrame(redraw));
+        requestAnimationFrame(() =>
+            requestAnimationFrame(redraw)
+        );
 
-        // Keep lines aligned on resize
         let rid;
         window.addEventListener("resize", () => {
             clearTimeout(rid);
             rid = setTimeout(() => {
-                requestAnimationFrame(() => requestAnimationFrame(() => drawLinks(byRound)));
+                requestAnimationFrame(() =>
+                    requestAnimationFrame(() => drawLinks(byRound))
+                );
             }, 80);
         });
 
