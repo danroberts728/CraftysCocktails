@@ -480,5 +480,44 @@
         ],
         "photo": "./assets/img/recipes/tom-collins.jpg",
         "notes": "Keith's favorite!"
+    },
+    "Elder Smoke": {
+        "ingredients": [
+            "1.5 oz Blanco Tequila",
+            "0.5 oz Blended Scotch",
+            "0.75 oz St Germain",
+            "0.5 oz Lime Juice",
+            "0.5 oz Grapefruit Juice",
+            "Add last: 0.5 oz Cranberry Juice",
+            "Garnish: Grapefruit Peel"
+        ],
+        "instructions": [
+            "Place all ingredients except Cranberry Juice into a shaker",
+            "Add ice and shake for 8–10 seconds",
+            "Add large ice cube to a rocks glass and strain cocktail into glass",
+            "Pour in cranberry juice near edge of glass",
+            "Garnish with a grapefruit peel"
+        ],
+        "photo": "./assets/img/recipes/elder-smoke.jpg",
+        "notes": "Grapefruits can apparently be hard to find some times, so an orange peel works just fine."
+    },
+    "Margarita": {
+        "ingredients": [
+            "2 oz Blanco Tequila",
+            "1 oz Triple Sec",
+            "0.75 oz Lime Juice",
+            "0.25 oz Lemon Juice",
+            "0.25 oz Simple Syrup",
+            "Garnish: Lime Wedge"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker",
+            "Add ice and shake for 8–10 seconds",
+            "Salt rim of glass using lime wedge and salt",
+            "Add ice to glass",
+            "Strain cocktail into glass"
+        ],
+        "photo": "./assets/img/recipes/margarita.jpg",
+        "notes": ""
     }
 }
