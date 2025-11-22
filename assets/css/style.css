@@ -260,7 +260,7 @@ body{
 }
 .modal__close {
   position: absolute; right: 10px; top: 8px; border: 0; background: transparent;
-  color: var(--muted); font-size: 28px; cursor: pointer;
+  color: var(--muted); font-size: 36px; cursor: pointer;
 }
 .modal__content {
   display: grid; grid-template-columns: 1.1fr 1.6fr; gap: 16px;

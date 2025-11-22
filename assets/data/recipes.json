@@ -12,7 +12,7 @@
             "Add ice to glass about 3/4 full and stir with spoon",
             "Top off glass with ice and garnish with handfull of mint sprigs."
         ],
-        "photo": "./assets/img/recipes/mint-julep.png",
+        "photo": "./assets/img/recipes/mint-julep.jpg",
         "notes": "I used the iconic Julep glass, but a rocks glass works too. Double the simple syprup if you like it sweeter. It's literally just bourbon cut with sugar and mint, and it's super easy to make."
     },
     "Gold Rush": {
@@ -63,7 +63,7 @@
             "Garnish with Angostura bitter drops on top."
         ],
         "photo": "./assets/img/recipes/whiskey-sour.jpg",
-        "notes": "If you can't stand the idea of egg white, most bartenders just leave it off. You can also Aquafaba. But I highly recommend giving it a try - it really cuts into the sourness. This works with any kind of whiskey. Rye makes it a little spicer."
+        "notes": "If you can't stand the idea of egg white, most bartenders just leave it off. You can also use Aquafaba, but I highly recommend giving egg white a try - it really cuts into the sourness. This works with any kind of whiskey. Rye makes it a little spicer."
     },
     "Ada Shelby": {
         "ingredients": [
