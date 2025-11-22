@@ -384,3 +384,7 @@ body{
 .round-title {
   margin-bottom: 48px;
 }
+.site-header-actions {
+  visibility: hidden;
+  display: none;
+}
