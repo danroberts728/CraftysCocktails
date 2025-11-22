@@ -23,7 +23,7 @@
 }
 
 *{ box-sizing: border-box; }
-html, body{ height:100%; overflow-x:hidden; }
+html, body{ height:100%;}
 body{
   margin:0;
   background:var(--bg);
@@ -45,6 +45,29 @@ body{
   position:relative;
   width:100%;
   padding:16px clamp(10px,2vw,24px) 24px;
+}
+
+.site-header-actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.priority-btn {
+  border: 1px solid var(--card-brd);
+  background: var(--card-bg);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,.4);
+}
+
+.priority-btn:hover {
+  background: var(--slot-bg);
+  color: var(--accent);
 }
 
 /* 9 columns: 4 + 1 + 4 */
@@ -99,37 +122,6 @@ body{
   right: 0;
 }
 
-/* Base icon button styling; specific placement via icon-* modifiers */
-.match-invite-btn {
-  border: 0;
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  font-size: 15px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.06);
-  color: var(--muted);
-  cursor: pointer;
-  box-shadow: 0 0 4px rgba(0,0,0,0.4);
-}
-
-.match-wrapper.icon-left .match-invite-btn {
-  position: absolute;
-  left: -32px;
-  top: calc(50% - var(--card-h) / 2 + var(--card-h) / 2);
-  transform: translateY(-50%);
-}
-
-.match-wrapper.icon-right .match-invite-btn {
-  position: absolute;
-  right: -32px;
-  top: calc(50% - var(--card-h) / 2 + var(--card-h) / 2);
-  transform: translateY(-50%);
-}
-
 .match-wrapper.icon-left,
 .match-wrapper.icon-right {
   display: flex;
@@ -139,15 +131,69 @@ body{
 /* All other rounds: icon above, centered */
 .match-wrapper.icon-top .match-invite-btn {
   position: absolute;
-  left: 50%;
+  left: 75%;
   top: -18px;
   transform: translate(-50%, 0);
 }
 
-.match-invite-btn:hover {
-  background: rgba(255,255,255,0.12);
-  color: var(--accent);
+/* Base icon button styling */
+.match-invite-btn {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Bourbon barrel look */
+  background: radial-gradient(circle at 30% 30%,
+      #6a4323 0%,     /* warm toasted oak */
+      #4a2d19 55%,    /* deeper mid-tone */
+      #2a1a10 100%    /* dark rim */
+  );
+
+  color: #f5e1c3;      /* light “charred label” cream */
+  border: 1px solid #8a5b30;
+
+  cursor: pointer;
+  z-index: 20;
+  font-weight: 700;
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.6),
+    inset 0 1px 2px rgba(255,255,255,0.05),
+    inset 0 -2px 4px rgba(0,0,0,0.6);
+
+  transition: transform 0.15s ease,
+              box-shadow 0.15s ease,
+              background 0.15s ease;
 }
+
+/* Placement: above/right-ish of the card */
+.match-wrapper.icon-top .match-invite-btn {
+  position: absolute;
+  left: 72%;          /* tweak this for exact horizontal position */
+  top: -18px;
+  transform: translate(-50%, 0);
+}
+
+/* Hover: brighter center, slight lift */
+.match-wrapper.icon-top .match-invite-btn:hover,
+.match-wrapper.icon-top .match-invite-btn:focus-visible {
+  transform: translate(-50%, 0) scale(1.08);
+  background: radial-gradient(circle at 30% 30%,
+      #7b4d28 0%,     /* slightly brighter center */
+      #52321c 55%,
+      #2a1a10 100%
+  );
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.7),
+    inset 0 1px 2px rgba(255,255,255,0.08),
+    inset 0 -3px 5px rgba(0,0,0,0.7);
+}
+
 
 /* Two stacked team “slots” */
 .slot{
@@ -284,6 +330,40 @@ body{
   margin: 0 auto 12px;
   border-radius: 10px;
   background: #121a2a;
+}
+
+.modal__content--priority {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.priority-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.priority-table th,
+.priority-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.priority-table th {
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.priority-table tr.priority-core {
+  background: rgba(224, 178, 90, 0.12);
+}
+
+.priority-table tr.priority-core td:first-child::before {
+  content: "★ ";
+  color: var(--accent);
 }
 
 /* Mobile still stacks nicely */

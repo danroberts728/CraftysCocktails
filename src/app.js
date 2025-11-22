@@ -4,6 +4,7 @@ import * as CFG from "./config.js";
 const SHEET_URL = CFG.SHEET_URL;
 const RECIPES_URL = CFG.RECIPES_URL ?? "./assets/data/recipes.json";
 const INVITES_URL = CFG.INVITES_URL ?? "./assets/data/invites.json";
+const PRIORITY_URL = CFG.PRIORITY_URL;
 
 /* ================= Utilities ================= */
 // If the sheet is blank, make it TBD for the card
@@ -29,12 +30,57 @@ async function parseCsv(url) {
 
 // Keep these in sync with CSS vars
 const CARD_H = 84;
-const V_GAP = 16;
+const V_GAP = 26;
 
 function withinIdx(matchNum, arr) {
     const min = Math.min(...arr.map(d => d.Match));
     return matchNum - min + 1;
 }
+
+/* ================= Priority List ================= */
+
+let __priorityCache = null;
+
+async function loadPriorityList(url = PRIORITY_URL) {
+    if (!url) return [];
+    if (__priorityCache) return __priorityCache;
+
+    const res = await fetch(url, { cache: "no-store" });
+    const text = await res.text();
+
+    const lines = text.replace(/\r/g, "").split("\n");
+    // Skip first 2 header lines (dates + Rank/Name/RSVP)
+    const dataLines = lines.slice(2);
+
+    const entries = [];
+
+    for (const line of dataLines) {
+        if (!line.trim()) continue;
+        const cells = line.split("\t");
+        if (cells.length < 3) continue;
+
+        const rank = Number(cells[0]);
+        const name = (cells[cells.length - 2] || "").trim(); // right-most Name col
+
+        if (!name) continue;
+
+        entries.push({
+            rank: Number.isFinite(rank) ? rank : null,
+            name
+        });
+    }
+
+    // Just in case: sort by rank if present
+    entries.sort((a, b) => {
+        const ar = a.rank ?? 9999;
+        const br = b.rank ?? 9999;
+        return ar - br;
+    });
+
+    __priorityCache = entries;
+    return entries;
+}
+
 
 /* ================= Recipe store + modal ================= */
 
@@ -90,6 +136,87 @@ const Invites = {
         ) || null;
     }
 };
+
+function setupPriorityModal() {
+    const modal = document.getElementById(CFG.ELEMENTID_PRIORITY_MODAL);
+    if (!modal || modal.__wired) return;
+    modal.__wired = true;
+
+    modal.addEventListener("click", (e) => {
+        if (e.target.hasAttribute("data-close") || e.target === modal) {
+            if (document.activeElement && modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+            }
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            lockBodyScroll(false);
+        }
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+            if (document.activeElement && modal.contains(document.activeElement)) {
+                document.activeElement.blur();
+            }
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            lockBodyScroll(false);
+        }
+    });
+}
+
+async function openPriorityModal() {
+    setupPriorityModal();
+
+    const modal = document.getElementById(CFG.ELEMENTID_PRIORITY_MODAL);
+    const tbody = document.getElementById(CFG.ELEMENTID_PRIORITY_TABLE_BODY);
+    const note  = document.getElementById(CFG.ELEMENTID_PRIORITY_NOTE);
+
+    if (!modal || !tbody) return;
+
+    // loading state
+    tbody.innerHTML = `<tr><td colspan="2">Loading…</td></tr>`;
+    if (note) {
+        note.style.display = "";
+    }
+
+    try {
+        const entries = await loadPriorityList();
+
+        tbody.innerHTML = "";
+
+        entries.forEach((item, idx) => {
+            const tr = document.createElement("tr");
+            if (idx < 10) {
+                tr.classList.add("priority-core"); // highlight first 10
+            }
+
+            const tdRank = document.createElement("td");
+            tdRank.textContent = item.rank ?? (idx + 1);
+
+            const tdName = document.createElement("td");
+            tdName.textContent = item.name;
+
+            tr.append(tdRank, tdName);
+            tbody.appendChild(tr);
+        });
+
+        if (!entries.length && note) {
+            note.textContent = "Priority list is empty or could not be parsed.";
+        }
+    } catch (err) {
+        console.error("Failed to load priority list:", err);
+        tbody.innerHTML = `<tr><td colspan="2">Failed to load priority list.</td></tr>`;
+        if (note) {
+            note.textContent = "There was an error loading the priority list.";
+        }
+    }
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    lockBodyScroll(true);
+}
+
 
 /* ====== RECIPE MODAL ====== */
 function setupRecipeModal() {
@@ -313,14 +440,8 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
         wrapper.style.right = "0";
         wrapper.style.top = `${y}px`;
 
-        // Apply icon placement=
-        if (roundNumber === 1 && side === "left") {
-            wrapper.classList.add("icon-left");
-        } else if (roundNumber === 1 && side === "right") {
-            wrapper.classList.add("icon-right");
-        } else {
-            wrapper.classList.add("icon-top");
-        }
+        // Apply icon placement: always above the card
+        wrapper.classList.add("icon-top");
 
         /* CARD */
         const card = document.createElement("div");
@@ -359,7 +480,8 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
             inviteBtn.type = "button";
             inviteBtn.className = "match-invite-btn";
             inviteBtn.title = "View Invitation";
-            inviteBtn.innerHTML = "🎫";
+            inviteBtn.textContent = "ⓘ";
+            inviteBtn.setAttribute("aria-label", "View invitation details");
 
             inviteBtn.addEventListener("click", (evt) => {
                 evt.stopPropagation();
@@ -450,10 +572,18 @@ function drawLinks(byRound) {
     try {
         setupRecipeModal();
         setupInviteModal();
+        setupPriorityModal();
         document.getElementById("loading").style.display = "block";
 
         await Recipes.load();
         await Invites.load();
+
+        const priorityBtn = document.getElementById(CFG.ELEMENTID_PRIORITY_BUTTON);
+        if (priorityBtn) {
+            priorityBtn.addEventListener("click", () => {
+                openPriorityModal();
+            });
+        }
 
         const rows = await parseCsv(SHEET_URL);
         const data = rows.map(d => ({

@@ -9,9 +9,15 @@
 </head>
 <body>
   <header class="site-header">
-    <h1>Crafty’s Cocktails</h1>
-    <p class="subtitle">Single-elimination · 32 cocktails</p>
-  </header>
+  <h1>Crafty’s Cocktails</h1>
+  <p class="subtitle">Single-elimination · 32 cocktails</p>
+
+  <div class="site-header-actions">
+    <button id="priority-button" class="priority-btn" type="button">
+      Current Priority List
+    </button>
+  </div>
+</header>
 
   <main id="app">
     <div id="loading">Loading bracket…</div>
@@ -102,6 +108,31 @@
           <h2 id="invite-title">Match Invite</h2>
           <img id="invite-image" alt="Invite for this matchup" />
           <p id="invite-fallback" class="notes">Invite coming soon.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Priority List Modal -->
+    <div id="priority-modal" class="modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="priority-title">
+        <button class="modal__close" type="button" title="Close" data-close>&times;</button>
+        <div class="modal__content modal__content--priority">
+          <h2 id="priority-title">Current Priority List</h2>
+          <p id="priority-note" class="notes">
+            Top 10 invitees and alternates.
+          </p>
+          <table class="priority-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody id="priority-table-body">
+              <!-- filled by JS -->
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

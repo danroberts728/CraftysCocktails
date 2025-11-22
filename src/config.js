@@ -2,6 +2,12 @@
 export const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS1eIoInG9n4CuX1Y6GoR5gWfoj1LBiqe2g0i455bN67yNWkptcJvyz20cgIWhmMGITqmP7od0wvVoH/pub?gid=852319562&single=true&output=csv";
 export const RECIPES_URL = "./assets/data/recipes.json";
 export const INVITES_URL = "./assets/data/invites.json";
+export const PRIORITY_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS1eIoInG9n4CuX1Y6GoR5gWfoj1LBiqe2g0i455bN67yNWkptcJvyz20cgIWhmMGITqmP7od0wvVoH/pub?gid=802522828&single=true&output=tsv";
+
+export const ELEMENTID_PRIORITY_MODAL = "priority-modal";
+export const ELEMENTID_PRIORITY_BUTTON = "priority-button";
+export const ELEMENTID_PRIORITY_TABLE_BODY = "priority-table-body";
+export const ELEMENTID_PRIORITY_NOTE = "priority-note";
 
 export const DEFAULT_TBD = "TBD";
 
