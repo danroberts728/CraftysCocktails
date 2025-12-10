@@ -49,6 +49,13 @@
     "notes": "Black Russian vs Moscow Mule"
   },
   {
+    "round": 0,
+    "match": 8,
+    "title": "Zest Fest",
+    "image": "./assets/img/invites/zest-fest.png",
+    "notes": "Lemon Drop vs Kamikaze"
+  },
+  {
     "round": 1,
     "match": 9,
     "title": "Club Havana",

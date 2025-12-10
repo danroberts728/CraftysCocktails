@@ -519,5 +519,39 @@
         ],
         "photo": "./assets/img/recipes/margarita.jpg",
         "notes": ""
+    },
+    "Kamikaze": {
+        "ingredients": [
+            "2 oz Vodka",
+            "0.75 oz Orange Liqueur",
+            "0.75 oz Lime Juice",
+            "Garnish: Lime Wheel"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker",
+            "Add ice and shake for 8–10 seconds",
+            "Strain into coupe or martini glass",
+            "Garnish with a lime wheel"
+        ],
+        "photo": "./assets/img/recipes/kamikaze.jpg",
+        "notes": ""
+    },
+    "Lemon Drop": {
+        "ingredients": [
+            "2 oz Vodka",
+            "0.75 oz Orange Liqueur",
+            "0.75 oz Lemon Juice",
+            "Garnish: Lemon Twist"
+        ],
+        "instructions": [
+            "Place all ingredients into a shaker",
+            "Add ice and shake for 8–10 seconds",
+            "Optional: Rim your glass with sugar",
+            "Strain into coupe or martini glass",
+            "Garnish with a lemon twist or lemon wheel",
+            "Optional: 1 oz Blueberry or Strawberry syrup"
+        ],
+        "photo": "./assets/img/recipes/lemon-drop.jpg",
+        "notes": "Add about an 1 to 1.5 ounces Blueberry or strawberry syrup for a different flavor."
     }
 }
