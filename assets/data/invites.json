@@ -110,5 +110,12 @@
     "title": "Stirred Not Shaken",
     "image": "./assets/img/invites/stirred-not-shaken.png",
     "notes": "Martini vs Tom Collins"
+  },
+  {
+    "round": 2,
+    "match": 17,
+    "title": "The Golden Egg",
+    "image": "./assets/img/invites/the-golden-egg.jpeg",
+    "notes": "Gold Rush vs Whiskey Sour"
   }
 ]
