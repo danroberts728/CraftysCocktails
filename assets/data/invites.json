@@ -117,5 +117,12 @@
     "title": "The Golden Egg",
     "image": "./assets/img/invites/the-golden-egg.jpeg",
     "notes": "Gold Rush vs Whiskey Sour"
+  },
+  {
+    "round": 2,
+    "match": 21,
+    "title": "New World Nectar",
+    "image": "./assets/img/invites/new-world-nectar.jpg",
+    "notes": "Mojito vs Cantarito"
   }
 ]
