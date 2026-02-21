@@ -120,6 +120,13 @@
   },
   {
     "round": 2,
+    "match": 19,
+    "title": "Girls Night",
+    "image": "./assets/img/invites/girls-night.jpeg",
+    "notes": "Appletini vs Sex on the Beach"
+  },
+  {
+    "round": 2,
     "match": 21,
     "title": "New World Nectar",
     "image": "./assets/img/invites/new-world-nectar.jpg",
