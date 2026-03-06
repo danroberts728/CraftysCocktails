@@ -131,5 +131,12 @@
     "title": "New World Nectar",
     "image": "./assets/img/invites/new-world-nectar.jpg",
     "notes": "Mojito vs Cantarito"
+  },
+  {
+    "round": 2,
+    "match": 23,
+    "title": "Battle of the Pyramids (1798)",
+    "image": "./assets/img/invites/battle-of-pyramids.png",
+    "notes": "Blood & Sand vs Vieux Carre"
   }
 ]
