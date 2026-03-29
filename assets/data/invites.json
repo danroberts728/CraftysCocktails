@@ -120,6 +120,13 @@
   },
   {
     "round": 2,
+    "match": 18,
+    "title": "Leprechauns & Lumberjacks",
+    "image": "./assets/img/invites/leprechauns-and-lumberjacks.png",
+    "notes": "Ada Shelby vs Improved Whiskey Cocktail"
+  },
+  {
+    "round": 2,
     "match": 19,
     "title": "Girls Night",
     "image": "./assets/img/invites/girls-night.jpeg",
