@@ -141,6 +141,13 @@
   },
   {
     "round": 2,
+    "match": 22,
+    "title": "Voodoo Magic",
+    "image": "./assets/img/invites/voodoo-magic.png",
+    "notes": "Mojito vs Cantarito"
+  },
+  {
+    "round": 2,
     "match": 23,
     "title": "Battle of the Pyramids (1798)",
     "image": "./assets/img/invites/battle-of-pyramids.png",
