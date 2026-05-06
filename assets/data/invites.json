@@ -134,6 +134,13 @@
   },
   {
     "round": 2,
+    "match": 20,
+    "title": "The Sour Tsar",
+    "image": "./assets/img/invites/the-sour-tsar.png",
+    "notes": "Moscow Mule vs Lemon Drop"
+  }, 
+  {
+    "round": 2,
     "match": 21,
     "title": "New World Nectar",
     "image": "./assets/img/invites/new-world-nectar.jpg",
