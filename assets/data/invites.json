@@ -159,5 +159,12 @@
     "title": "Battle of the Pyramids (1798)",
     "image": "./assets/img/invites/battle-of-pyramids.png",
     "notes": "Blood & Sand vs Vieux Carre"
+  },
+  {
+    "round": 2,
+    "match": 24,
+    "title": "On the Matter of Lemon and Gin",
+    "image": "./assets/img/invites/on-the-matter-of-lemon-and-gin.png",
+    "notes": "Vieux Carre vs French 75"
   }
 ]
