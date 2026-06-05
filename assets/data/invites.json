@@ -166,5 +166,12 @@
     "title": "On the Matter of Lemon and Gin",
     "image": "./assets/img/invites/on-the-matter-of-lemon-and-gin.png",
     "notes": "Vieux Carre vs French 75"
+  },
+  {
+    "round": 2,
+    "match": 25,
+    "title": "End of the Rainbow",
+    "image": "./assets/img/invites/end-of-the-rainbow.png",
+    "notes": "Gold Rush vs Ada Shelby"
   }
 ]
