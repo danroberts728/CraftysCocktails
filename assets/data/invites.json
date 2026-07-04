@@ -173,5 +173,12 @@
     "title": "End of the Rainbow",
     "image": "./assets/img/invites/end-of-the-rainbow.png",
     "notes": "Gold Rush vs Ada Shelby"
+  },
+  {
+    "round": 3,
+    "match": 27,
+    "title": "Rum Ration",
+    "image": "./assets/img/invites/rum-ration.png",
+    "notes": "Mojito vs Hurricane"
   }
 ]
