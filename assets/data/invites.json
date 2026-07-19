@@ -176,6 +176,13 @@
   },
   {
     "round": 3,
+    "match": 26,
+    "title": "Ivan Appleseed",
+    "image": "./assets/img/invites/ivan-appleseed.png",
+    "notes": "Appletini vs Moscow Mule"
+  },
+  {
+    "round": 3,
     "match": 27,
     "title": "Rum Ration",
     "image": "./assets/img/invites/rum-ration.png",
