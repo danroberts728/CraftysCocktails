@@ -165,7 +165,7 @@
     "match": 24,
     "title": "On the Matter of Lemon and Gin",
     "image": "./assets/img/invites/on-the-matter-of-lemon-and-gin.png",
-    "notes": "Vieux Carre vs French 75"
+    "notes": "Tom Collins vs French 75"
   },
   {
     "round": 3,
@@ -187,5 +187,33 @@
     "title": "Rum Ration",
     "image": "./assets/img/invites/rum-ration.png",
     "notes": "Mojito vs Hurricane"
+  },
+  {
+    "round": 3,
+    "match": 28,
+    "title": "Culture War",
+    "image": "",
+    "notes": "Vieux Carre vs French 75"
+  },
+  {
+    "round": 4,
+    "match": 29,
+    "title": "Seward's Folly",
+    "image": "",
+    "notes": "Gold Rush vs Moscow Mule"
+  },
+  {
+    "round": 4,
+    "match": 30,
+    "title": "TBD",
+    "image": "",
+    "notes": "Hurrican vs TBD"
+  },
+  {
+    "round": 5,
+    "match": 31,
+    "title": "TBD",
+    "image": "",
+    "notes": "TBD vs TBD"
   }
 ]

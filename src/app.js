@@ -471,11 +471,11 @@ function placeRound(side, roundNumber, roundData, parentRoundData) {
             slot2.addEventListener("click", () => openRecipeModal(d.Drink2));
         }
 
-        /* INVITE ICON — only show if invite exists */
+        /* INVITE ICON — only show if invite and invite image exists */
         let inviteBtn = null;
         const inviteData = Invites.findByRoundMatch(roundNumber, d.Match);
 
-        if (inviteData) {
+        if (inviteData && inviteData.image && inviteData.image.size > 0) {
             inviteBtn = document.createElement("button");
             inviteBtn.type = "button";
             inviteBtn.className = "match-invite-btn";
