@@ -205,15 +205,15 @@
   {
     "round": 4,
     "match": 30,
-    "title": "TBD",
-    "image": "",
-    "notes": "Hurrican vs TBD"
+    "title": "The Creole Connection",
+    "image": "./assets/img/invites/creole-connection.png",
+    "notes": "Hurrican vs French 75"
   },
   {
     "round": 5,
     "match": 31,
     "title": "TBD",
     "image": "",
-    "notes": "TBD vs TBD"
+    "notes": "Gold Rush vs TBD"
   }
 ]

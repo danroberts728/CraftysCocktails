@@ -4,11 +4,20 @@
         {
             "label": "start http-server",
             "type": "shell",
-            "command": "http-server", // Or the full path to http-server if not in PATH
-            "isBackground": true, // Run in the background
-            "problemMatcher": [], // Or a specific problem matcher if needed
+            "command": "npx http-server",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "."
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".",
+                    "endsPattern": "Available on:"
+                }
+            },
             "presentation": {
-                "reveal": "never", // Don't show the terminal automatically
+                "reveal": "always",
                 "panel": "dedicated"
             }
         }
